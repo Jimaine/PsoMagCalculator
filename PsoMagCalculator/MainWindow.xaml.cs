@@ -245,18 +245,6 @@ namespace PsoMagCalculator
       }
     }
 
-    private void btnReset_Click(object sender, RoutedEventArgs e)
-    {
-      if (MessageBox.Show("Do you really want to delete this Mag?", "Deleting Mag", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-      {
-        m_mag = new Mag();
-        ShowMag();
-        ListHistory.Items.Clear();
-        AddToListBox();
-        m_listCount = 0;
-      }
-    }
-
     private void cmbSectionId_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       imgSectionId.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/SectionIds/" + cmbSectionId.SelectedItem + ".png");
@@ -276,7 +264,12 @@ namespace PsoMagCalculator
         sb.Append(item.Content + "\n");
 
       Clipboard.SetText(sb.ToString());
-      MessageBox.Show("The History was copy to Clipboard!\n\n" + sb.ToString().Substring(0, 100) + " ...", "History", MessageBoxButton.OK, MessageBoxImage.Information);
+
+      if (sb.Length < 100)
+        MessageBox.Show("The History was copy to Clipboard!\n\n" + sb.ToString(), "History", MessageBoxButton.OK, MessageBoxImage.Information);
+      else
+        MessageBox.Show("The History was copy to Clipboard!\n\n" + sb.ToString().Substring(0, 100) + " ...", "History", MessageBoxButton.OK, MessageBoxImage.Information);
+
     }
 
     private void ListHistory_MouseUp(object sender, MouseButtonEventArgs e)

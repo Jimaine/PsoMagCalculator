@@ -76,7 +76,6 @@
     <Label x:Name="lblMagName" Content="Mag" HorizontalAlignment="Left" Margin="25,153,0,0" VerticalAlignment="Top" Foreground="#FF7578C1" Background="{x:Null}"/>
     <ComboBox x:Name="cmbCharakter" HorizontalAlignment="Left" Margin="85,80,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Background="#FF7578C1" BorderBrush="#FF7578C1" Foreground="#FF151530"/>
     <Image x:Name="imgMag" HorizontalAlignment="Left" Height="100" Margin="48,286,0,0" VerticalAlignment="Top" Width="100" Source="Images/Mags/mag.gif"/>
-    <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="19,410,0,0" VerticalAlignment="Top" Width="75" Click="btnReset_Click" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1"/>
     <ComboBox x:Name="cmbSectionId" HorizontalAlignment="Left" Margin="85,107,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Background="#FF7578C1" BorderBrush="#FF7578C1" Foreground="#FF151530" SelectionChanged="cmbSectionId_SelectionChanged"/>
     <Image x:Name="imgSectionId" HorizontalAlignment="Left" Height="50" Margin="226,80,0,0" VerticalAlignment="Top" Width="50" Source="Images/SectionIds/Viridia.png"/>
     <ListBox x:Name="ListHistory" HorizontalAlignment="Left" Height="462" Margin="799,0,0,0" VerticalAlignment="Top" Width="187" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" MouseUp="ListHistory_MouseUp"/>
@@ -96,6 +95,6 @@
     <Image x:Name="imgPhotonTwo" HorizontalAlignment="Left" Height="69" Margin="703,76,0,0" VerticalAlignment="Top" Width="69" Source="Images/PhotonBlasts/Farlla.png"/>
     <Image x:Name="imgPhotonThree" HorizontalAlignment="Left" Height="69" Margin="549,341,0,0" VerticalAlignment="Top" Width="69" Source="Images/PhotonBlasts/Farlla.png"/>
     <Label x:Name="lblMeseta" Content="0 Meseta" HorizontalAlignment="Left" Margin="309,405,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Foreground="#FF7578C1"/>
-    <Button x:Name="btnSave" Content="Get History" HorizontalAlignment="Left" Margin="99,410,0,0" VerticalAlignment="Top" Width="75" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" Click="btnSave_Click"/>
+    <Button x:Name="btnSave" Content="Get History" HorizontalAlignment="Left" Margin="60,410,0,0" VerticalAlignment="Top" Width="75" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" Click="btnSave_Click"/>
   </Grid>
 </Window>
