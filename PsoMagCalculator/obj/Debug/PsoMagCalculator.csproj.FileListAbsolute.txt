@@ -1,0 +1,28 @@
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.exe.config
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.exe
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.pdb
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csprojResolveAssemblyReference.cache
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.baml
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.g.cs
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\App.g.cs
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator_MarkupCompile.cache
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.g.resources
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.Properties.Resources.resources
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csproj.GenerateResource.Cache
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.exe
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.pdb
+D:\Projekte\Visual Studio 2013\Projects\PsoMagCalculator\PsoMagCalculator\obj\Debug\App.baml
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.exe.config
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.exe
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.pdb
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.exe
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.pdb
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csprojResolveAssemblyReference.cache
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.baml
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\App.baml
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.g.cs
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\App.g.cs
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator_MarkupCompile.cache
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.g.resources
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.Properties.Resources.resources
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csproj.GenerateResource.Cache
