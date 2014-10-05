@@ -17,7 +17,6 @@ D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.pdb
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.exe
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\bin\Debug\PsoMagCalculator.pdb
-D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csprojResolveAssemblyReference.cache
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.baml
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\App.baml
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\MainWindow.g.cs

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,10 +23,10 @@ namespace PsoMagCalculator
   /// </summary>
   public partial class MainWindow : Window
   {
-    int listCount = 0;
-    int undo = -1;
-    Mag mag = new Mag();
-    List<Mag> mags = new List<Mag>();
+    int m_listCount = 0;
+    int m_undo = -1;
+    Mag m_mag = new Mag();
+    List<Mag> m_mags = new List<Mag>();
 
     public MainWindow()
     {
@@ -40,36 +42,36 @@ namespace PsoMagCalculator
 
     private void ShowMag()
     {
-      lblDef.Content = mag.DefLevel;
-      lblPow.Content = mag.PowLevel;
-      lblDex.Content = mag.DexLevel;
-      lblMind.Content = mag.MindLevel;
+      lblDef.Content = m_mag.DefLevel;
+      lblPow.Content = m_mag.PowLevel;
+      lblDex.Content = m_mag.DexLevel;
+      lblMind.Content = m_mag.MindLevel;
 
-      barDef.Value = mag.DefValue;
-      barPow.Value = mag.PowValue;
-      barDex.Value = mag.DexValue;
-      barMind.Value = mag.MindValue;
+      barDef.Value = m_mag.DefValue;
+      barPow.Value = m_mag.PowValue;
+      barDex.Value = m_mag.DexValue;
+      barMind.Value = m_mag.MindValue;
 
-      lblMagName.Content = mag.Name.ToString();
-      lblIq.Content = String.Format("IQ: {0}", mag.IQ);
-      lblSync.Content = String.Format("Sync: {0}", mag.Sync);
-      lblMagLevel.Content = String.Format("Level: {0}", mag.Level);
-      lblMeseta.Content = String.Format("{0} Meseta", mag.Meseta);
-      imgMag.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/Mags/" + mag.Name.ToString() + ".gif");
+      lblMagName.Content = m_mag.Name.ToString();
+      lblIq.Content = String.Format("IQ: {0}", m_mag.IQ);
+      lblSync.Content = String.Format("Sync: {0}", m_mag.Sync);
+      lblMagLevel.Content = String.Format("Level: {0}", m_mag.Level);
+      lblMeseta.Content = String.Format("{0} Meseta", m_mag.Meseta);
+      imgMag.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/Mags/" + m_mag.Name.ToString() + ".gif");
 
-      btnMonomate.ToolTip = Calculations.GetTooltip(Item.Monomate, mag.Name);
-      btnDimate.ToolTip = Calculations.GetTooltip(Item.Dimate, mag.Name);
-      btnTrimate.ToolTip = Calculations.GetTooltip(Item.Trimate, mag.Name);
-      btnMonofluid.ToolTip = Calculations.GetTooltip(Item.Monofluid, mag.Name);
-      btnDifluid.ToolTip = Calculations.GetTooltip(Item.Difluid, mag.Name);
-      btnTrifluid.ToolTip = Calculations.GetTooltip(Item.Trifluid, mag.Name);
-      btnAntidote.ToolTip = Calculations.GetTooltip(Item.Antidote, mag.Name);
-      btnAntiparalysis.ToolTip = Calculations.GetTooltip(Item.Antiparalysis, mag.Name);
-      btnSolAtomizer.ToolTip = Calculations.GetTooltip(Item.SolAtomizer, mag.Name);
-      btnMoonAtomizer.ToolTip = Calculations.GetTooltip(Item.MoonAtomizer, mag.Name);
-      btnStarAtomizer.ToolTip = Calculations.GetTooltip(Item.StarAtomizer, mag.Name);
+      btnMonomate.ToolTip = Calculations.GetTooltip(Item.Monomate, m_mag.Name);
+      btnDimate.ToolTip = Calculations.GetTooltip(Item.Dimate, m_mag.Name);
+      btnTrimate.ToolTip = Calculations.GetTooltip(Item.Trimate, m_mag.Name);
+      btnMonofluid.ToolTip = Calculations.GetTooltip(Item.Monofluid, m_mag.Name);
+      btnDifluid.ToolTip = Calculations.GetTooltip(Item.Difluid, m_mag.Name);
+      btnTrifluid.ToolTip = Calculations.GetTooltip(Item.Trifluid, m_mag.Name);
+      btnAntidote.ToolTip = Calculations.GetTooltip(Item.Antidote, m_mag.Name);
+      btnAntiparalysis.ToolTip = Calculations.GetTooltip(Item.Antiparalysis, m_mag.Name);
+      btnSolAtomizer.ToolTip = Calculations.GetTooltip(Item.SolAtomizer, m_mag.Name);
+      btnMoonAtomizer.ToolTip = Calculations.GetTooltip(Item.MoonAtomizer, m_mag.Name);
+      btnStarAtomizer.ToolTip = Calculations.GetTooltip(Item.StarAtomizer, m_mag.Name);
 
-      switch (mag.PhotonBlasts.Count)
+      switch (m_mag.PhotonBlasts.Count)
       {
         case 0:
           imgPhotonOne.Source = null;
@@ -77,19 +79,19 @@ namespace PsoMagCalculator
           imgPhotonThree.Source = null;
           break;
         case 1:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
           imgPhotonTwo.Source = null;
           imgPhotonThree.Source = null;
           break;
         case 2:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[0].ToString() + ".png");
-          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[1].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[1].ToString() + ".png");
           imgPhotonThree.Source = null;
           break;
         case 3:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[0].ToString() + ".png");
-          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[1].ToString() + ".png");
-          imgPhotonThree.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + mag.PhotonBlasts[2].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[1].ToString() + ".png");
+          imgPhotonThree.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[2].ToString() + ".png");
           break;
         default:
           break;
@@ -98,21 +100,18 @@ namespace PsoMagCalculator
 
     private void AddToListBox(Item p_item)
     {
-      listCount++;
+      m_listCount++;
 
       ListBoxItem lbi = new ListBoxItem();
-      lbi.Content = "   " + listCount + " " + p_item.ToString();
+      lbi.Content = "   " + m_listCount + " " + p_item.ToString();
       ListHistory.Items.Add(lbi);
 
-      if (listCount % 3 == 0)
+      if (m_listCount % 3 == 0)
       {
         ListBoxItem lbiEmpty = new ListBoxItem();
-        lbiEmpty.Content = "Zyklus " + ((listCount / 3) + 1);
+        lbiEmpty.Content = "Zyklus " + ((m_listCount / 3) + 1);
         ListHistory.Items.Add(lbiEmpty);
-
-        Mag testMag = new Mag();
-        testMag.Level = ((listCount / 3) + 1);
-        mags.Add(testMag);
+        m_mags.Add(DeepCopy(m_mag));
       }
     }
 
@@ -120,17 +119,17 @@ namespace PsoMagCalculator
     {
       ListBoxItem lbiEmpty = new ListBoxItem();
       lbiEmpty.Content = "Zyklus 1";
-      mags.Clear();
-      mags.Add(new Mag());
+      m_mags.Clear();
+      m_mags.Add(new Mag());
       ListHistory.Items.Add(lbiEmpty);
     }
 
     private void btnMonomate_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
         CheckUndo();
-        Calculations.Recalculate(ref mag, Item.Monomate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        Calculations.Recalculate(ref m_mag, Item.Monomate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Monomate);
         ShowMag();
       }
@@ -138,9 +137,10 @@ namespace PsoMagCalculator
 
     private void btnDimate_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Dimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Dimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Dimate);
         ShowMag();
       }
@@ -148,9 +148,10 @@ namespace PsoMagCalculator
 
     private void btnTrimate_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Trimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Trimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Trimate);
         ShowMag();
       }
@@ -158,9 +159,10 @@ namespace PsoMagCalculator
 
     private void btnMonofluid_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Monofluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Monofluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Monofluid);
         ShowMag();
       }
@@ -168,9 +170,10 @@ namespace PsoMagCalculator
 
     private void btnDifluid_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Difluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Difluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Difluid);
         ShowMag();
       }
@@ -178,9 +181,10 @@ namespace PsoMagCalculator
 
     private void btnTrifluid_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Trifluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Trifluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Trifluid);
         ShowMag();
       }
@@ -188,9 +192,10 @@ namespace PsoMagCalculator
 
     private void btnAntidote_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Antidote, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Antidote, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Antidote);
         ShowMag();
       }
@@ -198,9 +203,10 @@ namespace PsoMagCalculator
 
     private void btnAntiparalysis_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.Antiparalysis, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.Antiparalysis, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.Antiparalysis);
         ShowMag();
       }
@@ -208,9 +214,10 @@ namespace PsoMagCalculator
 
     private void btnSolAtomizer_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.SolAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.SolAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.SolAtomizer);
         ShowMag();
       }
@@ -218,9 +225,10 @@ namespace PsoMagCalculator
 
     private void btnMoonAtomizer_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.MoonAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.MoonAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.MoonAtomizer);
         ShowMag();
       }
@@ -228,9 +236,10 @@ namespace PsoMagCalculator
 
     private void btnStarAtomizer_Click(object sender, RoutedEventArgs e)
     {
-      if (mag.Level < 200)
+      if (m_mag.Level < 200)
       {
-        Calculations.Recalculate(ref mag, Item.StarAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        CheckUndo();
+        Calculations.Recalculate(ref m_mag, Item.StarAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
         AddToListBox(Item.StarAtomizer);
         ShowMag();
       }
@@ -240,11 +249,11 @@ namespace PsoMagCalculator
     {
       if (MessageBox.Show("Do you really want to delete this Mag?", "Deleting Mag", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
       {
-        mag = new Mag();
+        m_mag = new Mag();
         ShowMag();
         ListHistory.Items.Clear();
         AddToListBox();
-        listCount = 0;
+        m_listCount = 0;
       }
     }
 
@@ -274,25 +283,44 @@ namespace PsoMagCalculator
     {
       ListBox lb = (ListBox)sender;
 
-      if(lb.SelectedItems.Count == 1)
+      if (lb.SelectedItems.Count == 1)
       {
         ListBoxItem lbi = (ListBoxItem)lb.SelectedItem;
         if (lbi.Content.ToString().Contains("Zyklus"))
         {
           int zyklus = Convert.ToInt32(lbi.Content.ToString().Substring(7));
-          mag = mags[zyklus - 1];
-          undo = zyklus;
+          if (MessageBox.Show("The Mag will be set Back to Zyklus " + zyklus + ".\nDo you want to set your Mag back?", "Previous Mag", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+          {
+            m_mag = DeepCopy(m_mags[zyklus - 1]);
+            m_undo = zyklus;
+          }
         }
       }
     }
 
     private void CheckUndo()
     {
-      if (undo > -1)
+      if (m_undo > -1)
       {
+        int lbIndes = m_undo * 4 - 3;
 
+        for (int i = ListHistory.Items.Count - 1; i >= lbIndes; i--)
+          ListHistory.Items.RemoveAt(i);
 
-        undo = -1;
+        ListHistory.Items.Refresh();
+        m_listCount = (m_undo - 1) * 3;
+        m_undo = -1;
+      }
+    }
+
+    private static Mag DeepCopy(Mag m_other)
+    {
+      using (MemoryStream ms = new MemoryStream())
+      {
+        BinaryFormatter formatter = new BinaryFormatter();
+        formatter.Serialize(ms, m_other);
+        ms.Position = 0;
+        return (Mag)formatter.Deserialize(ms);
       }
     }
   }

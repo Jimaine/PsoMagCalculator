@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PsoMagCalculator
 {
+  [Serializable]
   class Mag
   {
     private MagName name;
