@@ -111,7 +111,7 @@ namespace PsoMagCalculator
         ListBoxItem lbiEmpty = new ListBoxItem();
         lbiEmpty.Content = "Zyklus " + ((m_listCount / 3) + 1);
         ListHistory.Items.Add(lbiEmpty);
-        m_mags.Add(DeepCopy(m_mag));
+        m_mags.Add(GenericCopy<Mag>.DeepCopy(m_mag));
       }
     }
 
@@ -284,7 +284,7 @@ namespace PsoMagCalculator
           int zyklus = Convert.ToInt32(lbi.Content.ToString().Substring(7));
           if (MessageBox.Show("The Mag will be set Back to Zyklus " + zyklus + ".\nDo you want to set your Mag back?", "Previous Mag", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
           {
-            m_mag = DeepCopy(m_mags[zyklus - 1]);
+            m_mag = GenericCopy<Mag>.DeepCopy(m_mags[zyklus - 1]);
             m_undo = zyklus;
           }
         }
@@ -303,17 +303,6 @@ namespace PsoMagCalculator
         ListHistory.Items.Refresh();
         m_listCount = (m_undo - 1) * 3;
         m_undo = -1;
-      }
-    }
-
-    private static Mag DeepCopy(Mag m_other)
-    {
-      using (MemoryStream ms = new MemoryStream())
-      {
-        BinaryFormatter formatter = new BinaryFormatter();
-        formatter.Serialize(ms, m_other);
-        ms.Position = 0;
-        return (Mag)formatter.Deserialize(ms);
       }
     }
   }
