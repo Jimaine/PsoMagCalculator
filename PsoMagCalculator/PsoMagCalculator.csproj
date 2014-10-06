@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Calculations.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="GenericCopy.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Mag.cs" />
     <Compile Include="PhotonBlast.cs" />

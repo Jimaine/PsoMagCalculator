@@ -25,3 +25,4 @@ D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator_
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.g.resources
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.Properties.Resources.resources
 D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csproj.GenerateResource.Cache
+D:\Projekte\GitHub\PsoMagCalculator\PsoMagCalculator\obj\Debug\PsoMagCalculator.csprojResolveAssemblyReference.cache
