@@ -56,13 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalculationEnums.cs" />
     <Compile Include="Calculations.cs" />
-    <Compile Include="Character.cs" />
+    <Compile Include="FeedingInformations.cs" />
     <Compile Include="GenericCopy.cs" />
-    <Compile Include="Item.cs" />
     <Compile Include="Mag.cs" />
-    <Compile Include="PhotonBlast.cs" />
-    <Compile Include="SectionId.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

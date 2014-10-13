@@ -23,55 +23,69 @@ namespace PsoMagCalculator
   /// </summary>
   public partial class MainWindow : Window
   {
-    int m_listCount = 0;
-    int m_undo = -1;
-    Mag m_mag = new Mag();
-    List<Mag> m_mags = new List<Mag>();
+    int m_ListCount = 0;
+    int m_HistoryBack = -1;
+    Mag m_MainMag = new Mag();
+    List<Mag> m_MagsInHistory = new List<Mag>();
+    Dictionary<Button, Item> m_Buttons = new Dictionary<Button, Item>();
 
     public MainWindow()
     {
       InitializeComponent();
       ShowMag();
+      AddToListBox();
+
       cmbCharakter.ItemsSource = Enum.GetValues(typeof(Character)).Cast<Character>();
       cmbSectionId.ItemsSource = Enum.GetValues(typeof(SectionId)).Cast<SectionId>();
-      AddToListBox();
+
       imgPhotonOne.Source = null;
       imgPhotonTwo.Source = null;
       imgPhotonThree.Source = null;
+
+      InitializeButtonDictionary();
     }
 
     private void ShowMag()
     {
-      lblDef.Content = m_mag.DefLevel;
-      lblPow.Content = m_mag.PowLevel;
-      lblDex.Content = m_mag.DexLevel;
-      lblMind.Content = m_mag.MindLevel;
+      lblDef.Content = m_MainMag.DefLevel;
+      lblPow.Content = m_MainMag.PowLevel;
+      lblDex.Content = m_MainMag.DexLevel;
+      lblMind.Content = m_MainMag.MindLevel;
 
-      barDef.Value = m_mag.DefValue;
-      barPow.Value = m_mag.PowValue;
-      barDex.Value = m_mag.DexValue;
-      barMind.Value = m_mag.MindValue;
+      barDef.Value = m_MainMag.DefValue;
+      barPow.Value = m_MainMag.PowValue;
+      barDex.Value = m_MainMag.DexValue;
+      barMind.Value = m_MainMag.MindValue;
 
-      lblMagName.Content = m_mag.Name.ToString();
-      lblIq.Content = String.Format("IQ: {0}", m_mag.IQ);
-      lblSync.Content = String.Format("Sync: {0}", m_mag.Sync);
-      lblMagLevel.Content = String.Format("Level: {0}", m_mag.Level);
-      lblMeseta.Content = String.Format("{0} Meseta", m_mag.Meseta);
-      imgMag.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/Mags/" + m_mag.Name.ToString() + ".gif");
+      lblMagName.Content = m_MainMag.Name.ToString();
+      lblIq.Content = String.Format("IQ: {0}", m_MainMag.IQ);
+      lblSync.Content = String.Format("Sync: {0}", m_MainMag.Sync);
+      lblMagLevel.Content = String.Format("Level: {0}", m_MainMag.Level);
+      lblMeseta.Content = String.Format("{0} Meseta", m_MainMag.Meseta);
+      imgMag.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/Mags/" + m_MainMag.Name.ToString() + ".gif");
 
-      btnMonomate.ToolTip = Calculations.GetTooltip(Item.Monomate, m_mag.Name);
-      btnDimate.ToolTip = Calculations.GetTooltip(Item.Dimate, m_mag.Name);
-      btnTrimate.ToolTip = Calculations.GetTooltip(Item.Trimate, m_mag.Name);
-      btnMonofluid.ToolTip = Calculations.GetTooltip(Item.Monofluid, m_mag.Name);
-      btnDifluid.ToolTip = Calculations.GetTooltip(Item.Difluid, m_mag.Name);
-      btnTrifluid.ToolTip = Calculations.GetTooltip(Item.Trifluid, m_mag.Name);
-      btnAntidote.ToolTip = Calculations.GetTooltip(Item.Antidote, m_mag.Name);
-      btnAntiparalysis.ToolTip = Calculations.GetTooltip(Item.Antiparalysis, m_mag.Name);
-      btnSolAtomizer.ToolTip = Calculations.GetTooltip(Item.SolAtomizer, m_mag.Name);
-      btnMoonAtomizer.ToolTip = Calculations.GetTooltip(Item.MoonAtomizer, m_mag.Name);
-      btnStarAtomizer.ToolTip = Calculations.GetTooltip(Item.StarAtomizer, m_mag.Name);
+      GetButtonTooltips();
+      SetPhotonBlasts();
+    }
 
-      switch (m_mag.PhotonBlasts.Count)
+    private void GetButtonTooltips()
+    {
+      btnMonomate.ToolTip = Calculations.GetTooltip(Item.Monomate, m_MainMag.Name);
+      btnDimate.ToolTip = Calculations.GetTooltip(Item.Dimate, m_MainMag.Name);
+      btnTrimate.ToolTip = Calculations.GetTooltip(Item.Trimate, m_MainMag.Name);
+      btnMonofluid.ToolTip = Calculations.GetTooltip(Item.Monofluid, m_MainMag.Name);
+      btnDifluid.ToolTip = Calculations.GetTooltip(Item.Difluid, m_MainMag.Name);
+      btnTrifluid.ToolTip = Calculations.GetTooltip(Item.Trifluid, m_MainMag.Name);
+      btnAntidote.ToolTip = Calculations.GetTooltip(Item.Antidote, m_MainMag.Name);
+      btnAntiparalysis.ToolTip = Calculations.GetTooltip(Item.Antiparalysis, m_MainMag.Name);
+      btnSolAtomizer.ToolTip = Calculations.GetTooltip(Item.SolAtomizer, m_MainMag.Name);
+      btnMoonAtomizer.ToolTip = Calculations.GetTooltip(Item.MoonAtomizer, m_MainMag.Name);
+      btnStarAtomizer.ToolTip = Calculations.GetTooltip(Item.StarAtomizer, m_MainMag.Name);
+    }
+
+    private void SetPhotonBlasts()
+    {
+      switch (m_MainMag.PhotonBlasts.Count)
       {
         case 0:
           imgPhotonOne.Source = null;
@@ -79,169 +93,90 @@ namespace PsoMagCalculator
           imgPhotonThree.Source = null;
           break;
         case 1:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[0].ToString() + ".png");
           imgPhotonTwo.Source = null;
           imgPhotonThree.Source = null;
           break;
         case 2:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
-          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[1].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[1].ToString() + ".png");
           imgPhotonThree.Source = null;
           break;
         case 3:
-          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[0].ToString() + ".png");
-          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[1].ToString() + ".png");
-          imgPhotonThree.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_mag.PhotonBlasts[2].ToString() + ".png");
+          imgPhotonOne.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[0].ToString() + ".png");
+          imgPhotonTwo.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[1].ToString() + ".png");
+          imgPhotonThree.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("../../Images/PhotonBlasts/" + m_MainMag.PhotonBlasts[2].ToString() + ".png");
           break;
         default:
           break;
       }
     }
 
-    private void AddToListBox(Item p_item)
+    private void InitializeButtonDictionary()
     {
-      m_listCount++;
-
-      ListBoxItem lbi = new ListBoxItem();
-      lbi.Content = "   " + m_listCount + " " + p_item.ToString();
-      ListHistory.Items.Add(lbi);
-
-      if (m_listCount % 3 == 0)
-      {
-        ListBoxItem lbiEmpty = new ListBoxItem();
-        lbiEmpty.Content = "Zyklus " + ((m_listCount / 3) + 1);
-        ListHistory.Items.Add(lbiEmpty);
-        m_mags.Add(GenericCopy<Mag>.DeepCopy(m_mag));
-      }
+      m_Buttons.Add(btnMonomate, Item.Monomate);
+      m_Buttons.Add(btnDimate, Item.Dimate);
+      m_Buttons.Add(btnTrimate, Item.Trimate);
+      m_Buttons.Add(btnMonofluid, Item.Monofluid);
+      m_Buttons.Add(btnDifluid, Item.Difluid);
+      m_Buttons.Add(btnTrifluid, Item.Trifluid);
+      m_Buttons.Add(btnAntidote, Item.Antidote);
+      m_Buttons.Add(btnAntiparalysis, Item.Antiparalysis);
+      m_Buttons.Add(btnSolAtomizer, Item.SolAtomizer);
+      m_Buttons.Add(btnMoonAtomizer, Item.MoonAtomizer);
+      m_Buttons.Add(btnStarAtomizer, Item.StarAtomizer);
     }
 
     private void AddToListBox()
     {
       ListBoxItem lbiEmpty = new ListBoxItem();
       lbiEmpty.Content = "Zyklus 1";
-      m_mags.Clear();
-      m_mags.Add(new Mag());
+      m_MagsInHistory.Clear();
+      m_MagsInHistory.Add(new Mag());
       ListHistory.Items.Add(lbiEmpty);
     }
 
-    private void btnMonomate_Click(object sender, RoutedEventArgs e)
+    private void AddToListBox(Item p_item)
     {
-      if (m_mag.Level < 200)
+      m_ListCount++;
+
+      ListBoxItem lbi = new ListBoxItem();
+      lbi.Content = String.Format("   {0} {1}", m_ListCount, p_item.ToString());
+      ListHistory.Items.Add(lbi);
+
+      if (m_ListCount % 3 == 0)
       {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Monomate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Monomate);
+        ListBoxItem lbiEmpty = new ListBoxItem();
+        lbiEmpty.Content = String.Format("Zyklus {0}", ((m_ListCount / 3) + 1));
+        ListHistory.Items.Add(lbiEmpty);
+        m_MagsInHistory.Add(GenericCopy<Mag>.DeepCopy(m_MainMag));
+      }
+    }
+
+    private void btnMagFeed_Click(object sender, RoutedEventArgs e)
+    {
+      if (m_MainMag.Level < 200)
+      {
+        CheckHistoryBack();
+        Button button = (Button)sender;
+        Calculations.Recalculate(m_MainMag, m_Buttons[button], (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
+        AddToListBox(m_Buttons[button]);
         ShowMag();
       }
     }
 
-    private void btnDimate_Click(object sender, RoutedEventArgs e)
+    private void CheckHistoryBack()
     {
-      if (m_mag.Level < 200)
+      if (m_HistoryBack > -1)
       {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Dimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Dimate);
-        ShowMag();
-      }
-    }
+        int lbIndes = m_HistoryBack * 4 - 3;
 
-    private void btnTrimate_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Trimate, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Trimate);
-        ShowMag();
-      }
-    }
+        for (int i = ListHistory.Items.Count - 1; i >= lbIndes; i--)
+          ListHistory.Items.RemoveAt(i);
 
-    private void btnMonofluid_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Monofluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Monofluid);
-        ShowMag();
-      }
-    }
-
-    private void btnDifluid_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Difluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Difluid);
-        ShowMag();
-      }
-    }
-
-    private void btnTrifluid_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Trifluid, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Trifluid);
-        ShowMag();
-      }
-    }
-
-    private void btnAntidote_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Antidote, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Antidote);
-        ShowMag();
-      }
-    }
-
-    private void btnAntiparalysis_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.Antiparalysis, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.Antiparalysis);
-        ShowMag();
-      }
-    }
-
-    private void btnSolAtomizer_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.SolAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.SolAtomizer);
-        ShowMag();
-      }
-    }
-
-    private void btnMoonAtomizer_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.MoonAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.MoonAtomizer);
-        ShowMag();
-      }
-    }
-
-    private void btnStarAtomizer_Click(object sender, RoutedEventArgs e)
-    {
-      if (m_mag.Level < 200)
-      {
-        CheckUndo();
-        Calculations.Recalculate(ref m_mag, Item.StarAtomizer, (Character)cmbCharakter.SelectedItem, (SectionId)cmbSectionId.SelectedItem);
-        AddToListBox(Item.StarAtomizer);
-        ShowMag();
+        ListHistory.Items.Refresh();
+        m_ListCount = (m_HistoryBack - 1) * 3;
+        m_HistoryBack = -1;
       }
     }
 
@@ -284,25 +219,10 @@ namespace PsoMagCalculator
           int zyklus = Convert.ToInt32(lbi.Content.ToString().Substring(7));
           if (MessageBox.Show("The Mag will be set Back to Zyklus " + zyklus + ".\nDo you want to set your Mag back?", "Previous Mag", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
           {
-            m_mag = GenericCopy<Mag>.DeepCopy(m_mags[zyklus - 1]);
-            m_undo = zyklus;
+            m_MainMag = GenericCopy<Mag>.DeepCopy(m_MagsInHistory[zyklus - 1]);
+            m_HistoryBack = zyklus;
           }
         }
-      }
-    }
-
-    private void CheckUndo()
-    {
-      if (m_undo > -1)
-      {
-        int lbIndes = m_undo * 4 - 3;
-
-        for (int i = ListHistory.Items.Count - 1; i >= lbIndes; i--)
-          ListHistory.Items.RemoveAt(i);
-
-        ListHistory.Items.Refresh();
-        m_listCount = (m_undo - 1) * 3;
-        m_undo = -1;
       }
     }
   }
