@@ -15,14 +15,14 @@ namespace PsoMagCalculator
     private int dex;
     private int mind;
 
-    public FeedingResults(int syncInc, int syncIq, int syncDef, int syncPow, int syncDex, int syncMind)
+    public FeedingResults(int syncInc, int iqInc, int defInc, int powInc, int dexInc, int mindInc)
     {
       sync = syncInc;
-      iQ = syncIq;
-      def = syncDef;
-      pow = syncPow;
-      dex = syncDex;
-      mind = syncMind;
+      iQ = iqInc;
+      def = defInc;
+      pow = powInc;
+      dex = dexInc;
+      mind = mindInc;
     }
 
     /// <summary>
