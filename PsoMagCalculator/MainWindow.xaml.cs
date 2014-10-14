@@ -29,6 +29,9 @@ namespace PsoMagCalculator
     List<Mag> m_MagsInHistory = new List<Mag>();
     Dictionary<Button, Item> m_Buttons = new Dictionary<Button, Item>();
 
+    /// <summary>
+    /// Initialize the whole Grid
+    /// </summary>
     public MainWindow()
     {
       InitializeComponent();

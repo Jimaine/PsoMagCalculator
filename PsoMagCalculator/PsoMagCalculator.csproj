@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\PsoMagCalculator.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,7 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="CalculationEnums.cs" />
     <Compile Include="Calculations.cs" />
-    <Compile Include="FeedingInformations.cs" />
+    <Compile Include="FeedingResults.cs" />
     <Compile Include="GenericCopy.cs" />
     <Compile Include="Mag.cs" />
     <Page Include="MainWindow.xaml">
@@ -69,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MagFeedingTable.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

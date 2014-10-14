@@ -8,15 +8,30 @@ namespace PsoMagCalculator
 {
   static class Calculations
   {
+    private static MagFeedingTable m_Mft = new MagFeedingTable();
+    
+    /// <summary>
+    /// Modifies the values of the Main Mag.
+    /// </summary>
+    /// <param name="p_mag">The Mag to modify.</param>
+    /// <param name="p_item">The Item to feed the Mag</param>
+    /// <param name="p_character">The character who feed the Mag</param>
+    /// <param name="p_sectionId">The Id of the character who feed the Mag</param>
     public static void Recalculate(Mag p_mag, Item p_item, Character p_character, SectionId p_sectionId)
     {
       SetMag(p_mag, p_item);
-
+      
       CheckLimits(p_mag);
       CheckLevel(p_mag, p_character, p_sectionId);
       CheckCosts(p_mag, p_item);
     }
 
+    /// <summary>
+    /// Return the Button's Tooltip as a string.
+    /// </summary>
+    /// <param name="p_item">The Item which represents the button</param>
+    /// <param name="p_magName">The Name of the Main Mag</param>
+    /// <returns>string</returns>
     public static string GetTooltip(Item p_item, MagName p_magName)
     {
       Mag tmpMag = new Mag();
@@ -37,24 +52,24 @@ namespace PsoMagCalculator
       switch (p_mag.Name)
       {
         case MagName.Mag:
-          MagTableOne(p_mag, p_item);
+          m_Mft.FeedingTables[0][p_item].AddToMag(p_mag);
           break;
         case MagName.Varuna:
         case MagName.Vritra:
         case MagName.Kalki:
-          MagTableTwo(p_mag, p_item);
+          m_Mft.FeedingTables[1][p_item].AddToMag(p_mag);
           break;
         case MagName.Ashvinau:
         case MagName.Sumba:
         case MagName.Namuci:
         case MagName.Marutah:
         case MagName.Rudra:
-          MagTableThree(p_mag, p_item);
+          m_Mft.FeedingTables[2][p_item].AddToMag(p_mag);
           break;
         case MagName.Surya:
         case MagName.Tapas:
         case MagName.Mitra:
-          MagTableFour(p_mag, p_item);
+          m_Mft.FeedingTables[3][p_item].AddToMag(p_mag);
           break;
         case MagName.Asperus:
         case MagName.Vayu:
@@ -64,7 +79,7 @@ namespace PsoMagCalculator
         case MagName.Kaitabha:
         case MagName.Kumara:
         case MagName.Bhirava:
-          MagTableFive(p_mag, p_item);
+          m_Mft.FeedingTables[4][p_item].AddToMag(p_mag);
           break;
         case MagName.Ila:
         case MagName.Garuda:
@@ -77,7 +92,7 @@ namespace PsoMagCalculator
         case MagName.Deva:
         case MagName.Rukmin:
         case MagName.Sato:
-          MagTableSix(p_mag, p_item);
+          m_Mft.FeedingTables[5][p_item].AddToMag(p_mag);
           break;
         case MagName.Andhaka:
         case MagName.Kabanda:
@@ -90,12 +105,12 @@ namespace PsoMagCalculator
         case MagName.Bhima:
         case MagName.Pushan:
         case MagName.Rati:
-          MagTableSeven(p_mag, p_item);
+          m_Mft.FeedingTables[6][p_item].AddToMag(p_mag);
           break;
         case MagName.Savitri:
         case MagName.Diwari:
         case MagName.Nidra:
-          MagTableEight(p_mag, p_item);
+          m_Mft.FeedingTables[7][p_item].AddToMag(p_mag);
           break;
       }
     }
@@ -546,7 +561,7 @@ namespace PsoMagCalculator
 
       GetLastPhotonBlast(p_mag);
 
-      if(p_mag.Level > 99)
+      if (p_mag.Level > 99)
         MagChangeEpic(p_mag, p_character, p_sectionId);
     }
 

@@ -84,6 +84,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The def value of the bar
+    /// </summary>
     public int DefValue
     {
       get
@@ -96,6 +99,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The pow value of the bar
+    /// </summary>
     public int PowValue
     {
       get
@@ -108,6 +114,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The dex value of the bar
+    /// </summary>
     public int DexValue
     {
       get
@@ -120,6 +129,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The mind value of the bar
+    /// </summary>
     public int MindValue
     {
       get
@@ -132,6 +144,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The whole def level
+    /// </summary>
     public int DefLevel
     {
       get
@@ -144,6 +159,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The whole pow level
+    /// </summary>
     public int PowLevel
     {
       get
@@ -156,6 +174,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The whole dex level
+    /// </summary>
     public int DexLevel
     {
       get
@@ -168,6 +189,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// The whole mind level
+    /// </summary>
     public int MindLevel
     {
       get
