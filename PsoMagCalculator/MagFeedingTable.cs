@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace PsoMagCalculator
     private List<Dictionary<Item, FeedingResults>> feedingTables = new List<Dictionary<Item, FeedingResults>>();
 
     /// <summary>
-    /// Get a List of all eight FeedingTables.
+    /// Get the List of all eight FeedingTables.
     /// </summary>
     public List<Dictionary<Item, FeedingResults>> FeedingTables
     {
@@ -21,6 +21,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// Basic Constructor to fill the List.
+    /// </summary>
     public MagFeedingTable()
     {
       Dictionary<Item, FeedingResults> feedingResults = new Dictionary<Item, FeedingResults>();
@@ -80,406 +83,60 @@ namespace PsoMagCalculator
       feedingTables.Add(feedingResults);
 
       feedingResults = new Dictionary<Item, FeedingResults>();
-      feedingResults.Add(Item.Monomate, new FeedingResults(0, -1, 0, 3, 0, 0));
-      feedingResults.Add(Item.Dimate, new FeedingResults(2, 0, 5, 7, 0, -5));
-      feedingResults.Add(Item.Trimate, new FeedingResults(3, 1, 4, 14, -6, -10));
-      feedingResults.Add(Item.Monofluid, new FeedingResults(0, 0, 0, 0, 0, 4));
-      feedingResults.Add(Item.Difluid, new FeedingResults(0, 1, 4, -5, 0, 8));
-      feedingResults.Add(Item.Trifluid, new FeedingResults(2, 2, 4, -10, 3, 15));
-      feedingResults.Add(Item.Antidote, new FeedingResults(-3, 3, 0, 0, 7, 0));
-      feedingResults.Add(Item.Antiparalysis, new FeedingResults(3, 0, -4, -5, 20, -5));
-      feedingResults.Add(Item.SolAtomizer, new FeedingResults(3, -2, -10, 9, 6, 9));
-      feedingResults.Add(Item.MoonAtomizer, new FeedingResults(-2, 2, 8, 5, -8, 7));
-      feedingResults.Add(Item.StarAtomizer, new FeedingResults(3, 2, 7, 7, 7, 7));
+      feedingResults.Add(Item.Monomate, new FeedingResults(2, -1, -5, 9, -5, 0));
+      feedingResults.Add(Item.Dimate, new FeedingResults(2, 0, 0, 11, 0, -10));
+      feedingResults.Add(Item.Trimate, new FeedingResults(0, 1, 4, 14, 0, -15));
+      feedingResults.Add(Item.Monofluid, new FeedingResults(2, -1, -5, 0, -6, 18));
+      feedingResults.Add(Item.Difluid, new FeedingResults(2, 0, 0, -10, 0, 11));
+      feedingResults.Add(Item.Trifluid, new FeedingResults(0, 1, 4, -15, 0, 15));
+      feedingResults.Add(Item.Antidote, new FeedingResults(2, -1, -5, -5, 16, -5));
+      feedingResults.Add(Item.Antiparalysis, new FeedingResults(-2, 3, 7, -3, 0, -3));
+      feedingResults.Add(Item.SolAtomizer, new FeedingResults(4, -2, 5, 21, -5, 20));
+      feedingResults.Add(Item.MoonAtomizer, new FeedingResults(3, 0, -5, -20, 5, 21));
+      feedingResults.Add(Item.StarAtomizer, new FeedingResults(3, -2, 4, 6, 8, 5));
       feedingTables.Add(feedingResults);
-    }
 
-    private static void MagTableFive(Mag p_mag, Item p_item)
-    {
-      switch (p_item)
-      {
-        case Item.Monomate:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += 9;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += 0;
-          break;
-        case Item.Dimate:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += 11;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -10;
-          break;
-        case Item.Trimate:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 4;
-          p_mag.PowValue += 14;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -15;
-          break;
-        case Item.Monofluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += 0;
-          p_mag.DexValue += -6;
-          p_mag.MindValue += 18;
-          break;
-        case Item.Difluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += -10;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 11;
-          break;
-        case Item.Trifluid:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 4;
-          p_mag.PowValue += -15;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 15;
-          break;
-        case Item.Antidote:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += -5;
-          p_mag.DexValue += 16;
-          p_mag.MindValue += -5;
-          break;
-        case Item.Antiparalysis:
-          p_mag.Sync += -2;
-          p_mag.IQ += 3;
-          p_mag.DefValue += 7;
-          p_mag.PowValue += -3;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -3;
-          break;
-        case Item.SolAtomizer:
-          p_mag.Sync += 4;
-          p_mag.IQ += -2;
-          p_mag.DefValue += 5;
-          p_mag.PowValue += 21;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += 20;
-          break;
-        case Item.MoonAtomizer:
-          p_mag.Sync += 3;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += -20;
-          p_mag.DexValue += 5;
-          p_mag.MindValue += 21;
-          break;
-        case Item.StarAtomizer:
-          p_mag.Sync += 3;
-          p_mag.IQ += -2;
-          p_mag.DefValue += 4;
-          p_mag.PowValue += 6;
-          p_mag.DexValue += 8;
-          p_mag.MindValue += 5;
-          break;
-        default:
-          break;
-      }
-    }
+      feedingResults = new Dictionary<Item, FeedingResults>();
+      feedingResults.Add(Item.Monomate, new FeedingResults(2, -1, -4, 13, -5, -5));
+      feedingResults.Add(Item.Dimate, new FeedingResults(0, 1, 0, 16, 0, -15));
+      feedingResults.Add(Item.Trimate, new FeedingResults(2, 0, 3, 19, -2, -18));
+      feedingResults.Add(Item.Monofluid, new FeedingResults(2, -1, -4, -5, -5, 13));
+      feedingResults.Add(Item.Difluid, new FeedingResults(0, 1, 0, -15, 0, 16));
+      feedingResults.Add(Item.Trifluid, new FeedingResults(2, 0, 3, -20, 0, 19));
+      feedingResults.Add(Item.Antidote, new FeedingResults(0, 1, 5, -6, 6, -5));
+      feedingResults.Add(Item.Antiparalysis, new FeedingResults(-1, 1, 0, -4, 14, -10));
+      feedingResults.Add(Item.SolAtomizer, new FeedingResults(4, -1, 4, 17, -5, -15));
+      feedingResults.Add(Item.MoonAtomizer, new FeedingResults(2, 0, -10, -15, 5, 21));
+      feedingResults.Add(Item.StarAtomizer, new FeedingResults(3, 2, 2, 8, 3, 6));
+      feedingTables.Add(feedingResults);
 
-    private static void MagTableSix(Mag p_mag, Item p_item)
-    {
-      switch (p_item)
-      {
-        case Item.Monomate:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += -4;
-          p_mag.PowValue += 13;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += -5;
-          break;
-        case Item.Dimate:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += 16;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -15;
-          break;
-        case Item.Trimate:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 3;
-          p_mag.PowValue += 19;
-          p_mag.DexValue += -2;
-          p_mag.MindValue += -18;
-          break;
-        case Item.Monofluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += -4;
-          p_mag.PowValue += -5;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += 13;
-          break;
-        case Item.Difluid:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += -15;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 16;
-          break;
-        case Item.Trifluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 3;
-          p_mag.PowValue += -20;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 19;
-          break;
-        case Item.Antidote:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 5;
-          p_mag.PowValue += -6;
-          p_mag.DexValue += 6;
-          p_mag.MindValue += -5;
-          break;
-        case Item.Antiparalysis:
-          p_mag.Sync += -1;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += -4;
-          p_mag.DexValue += 14;
-          p_mag.MindValue += -10;
-          break;
-        case Item.SolAtomizer:
-          p_mag.Sync += 4;
-          p_mag.IQ += -1;
-          p_mag.DefValue += 4;
-          p_mag.PowValue += 17;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += -15;
-          break;
-        case Item.MoonAtomizer:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -10;
-          p_mag.PowValue += -15;
-          p_mag.DexValue += 5;
-          p_mag.MindValue += 21;
-          break;
-        case Item.StarAtomizer:
-          p_mag.Sync += 3;
-          p_mag.IQ += 2;
-          p_mag.DefValue += 2;
-          p_mag.PowValue += 8;
-          p_mag.DexValue += 3;
-          p_mag.MindValue += 6;
-          break;
-        default:
-          break;
-      }
-    }
+      feedingResults = new Dictionary<Item, FeedingResults>();
+      feedingResults.Add(Item.Monomate, new FeedingResults(-1, 1, -3, 9, -3, -4));
+      feedingResults.Add(Item.Dimate, new FeedingResults(2, 0, 0, 11, 0, -10));
+      feedingResults.Add(Item.Trimate, new FeedingResults(2, 0, 2, 15, 0, -16));
+      feedingResults.Add(Item.Monofluid, new FeedingResults(-1, 3, -3, -4, -3, 9));
+      feedingResults.Add(Item.Difluid, new FeedingResults(2, 0, 0, -10, 0, 11));
+      feedingResults.Add(Item.Trifluid, new FeedingResults(2, 0, -2, -15, 0, 19));
+      feedingResults.Add(Item.Antidote, new FeedingResults(2, -1, 0, 6, 9, -15));
+      feedingResults.Add(Item.Antiparalysis, new FeedingResults(-2, 3, 0, -15, 9, 6));
+      feedingResults.Add(Item.SolAtomizer, new FeedingResults(3, -1, 9, -20, -5, 17));
+      feedingResults.Add(Item.MoonAtomizer, new FeedingResults(0, 2, -5, 20, 5, -20));
+      feedingResults.Add(Item.StarAtomizer, new FeedingResults(3, 2, 0, 11, 0, 11));
+      feedingTables.Add(feedingResults);
 
-    private static void MagTableSeven(Mag p_mag, Item p_item)
-    {
-      switch (p_item)
-      {
-        case Item.Monomate:
-          p_mag.Sync += -1;
-          p_mag.IQ += 1;
-          p_mag.DefValue += -3;
-          p_mag.PowValue += 9;
-          p_mag.DexValue += -3;
-          p_mag.MindValue += -4;
-          break;
-        case Item.Dimate:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += 11;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -10;
-          break;
-        case Item.Trimate:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 2;
-          p_mag.PowValue += 15;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += -16;
-          break;
-        case Item.Monofluid:
-          p_mag.Sync += -1;
-          p_mag.IQ += 3;
-          p_mag.DefValue += -3;
-          p_mag.PowValue += -4;
-          p_mag.DexValue += -3;
-          p_mag.MindValue += 9;
-          break;
-        case Item.Difluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += -10;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 11;
-          break;
-        case Item.Trifluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -2;
-          p_mag.PowValue += -15;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 19;
-          break;
-        case Item.Antidote:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += 6;
-          p_mag.DexValue += 9;
-          p_mag.MindValue += -15;
-          break;
-        case Item.Antiparalysis:
-          p_mag.Sync += -2;
-          p_mag.IQ += 3;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += -15;
-          p_mag.DexValue += 9;
-          p_mag.MindValue += 6;
-          break;
-        case Item.SolAtomizer:
-          p_mag.Sync += 3;
-          p_mag.IQ += -1;
-          p_mag.DefValue += 9;
-          p_mag.PowValue += -20;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += 17;
-          break;
-        case Item.MoonAtomizer:
-          p_mag.Sync += 0;
-          p_mag.IQ += 2;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += 20;
-          p_mag.DexValue += 5;
-          p_mag.MindValue += -20;
-          break;
-        case Item.StarAtomizer:
-          p_mag.Sync += 3;
-          p_mag.IQ += 2;
-          p_mag.DefValue += 0;
-          p_mag.PowValue += 11;
-          p_mag.DexValue += 0;
-          p_mag.MindValue += 11;
-          break;
-        default:
-          break;
-      }
-    }
-
-    private static void MagTableEight(Mag p_mag, Item p_item)
-    {
-      switch (p_item)
-      {
-        case Item.Monomate:
-          p_mag.Sync += -1;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -4;
-          p_mag.PowValue += +21;
-          p_mag.DexValue += -15;
-          p_mag.MindValue += -5;
-          break;
-        case Item.Dimate:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += -1;
-          p_mag.PowValue += 27;
-          p_mag.DexValue += -10;
-          p_mag.MindValue += -16;
-          break;
-        case Item.Trimate:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += 5;
-          p_mag.PowValue += 29;
-          p_mag.DexValue += -7;
-          p_mag.MindValue += -25;
-          break;
-        case Item.Monofluid:
-          p_mag.Sync += -1;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -10;
-          p_mag.PowValue += -5;
-          p_mag.DexValue += -10;
-          p_mag.MindValue += 21;
-          break;
-        case Item.Difluid:
-          p_mag.Sync += 0;
-          p_mag.IQ += 1;
-          p_mag.DefValue += -5;
-          p_mag.PowValue += -16;
-          p_mag.DexValue += -5;
-          p_mag.MindValue += 25;
-          break;
-        case Item.Trifluid:
-          p_mag.Sync += 2;
-          p_mag.IQ += 0;
-          p_mag.DefValue += -7;
-          p_mag.PowValue += -25;
-          p_mag.DexValue += 6;
-          p_mag.MindValue += 29;
-          break;
-        case Item.Antidote:
-          p_mag.Sync += -1;
-          p_mag.IQ += 1;
-          p_mag.DefValue += -10;
-          p_mag.PowValue += -10;
-          p_mag.DexValue += 28;
-          p_mag.MindValue += -10;
-          break;
-        case Item.Antiparalysis:
-          p_mag.Sync += 2;
-          p_mag.IQ += -1;
-          p_mag.DefValue += 9;
-          p_mag.PowValue += -18;
-          p_mag.DexValue += 24;
-          p_mag.MindValue += -15;
-          break;
-        case Item.SolAtomizer:
-          p_mag.Sync += 2;
-          p_mag.IQ += 1;
-          p_mag.DefValue += 19;
-          p_mag.PowValue += 18;
-          p_mag.DexValue += -15;
-          p_mag.MindValue += -20;
-          break;
-        case Item.MoonAtomizer:
-          p_mag.Sync += 2;
-          p_mag.IQ += 1;
-          p_mag.DefValue += -15;
-          p_mag.PowValue += -20;
-          p_mag.DexValue += 19;
-          p_mag.MindValue += 18;
-          break;
-        case Item.StarAtomizer:
-          p_mag.Sync += 4;
-          p_mag.IQ += 2;
-          p_mag.DefValue += 3;
-          p_mag.PowValue += 7;
-          p_mag.DexValue += 3;
-          p_mag.MindValue += 3;
-          break;
-        default:
-          break;
-      }
+      feedingResults = new Dictionary<Item, FeedingResults>();
+      feedingResults.Add(Item.Monomate, new FeedingResults(-1, 0, -4, 21, -15, -5));
+      feedingResults.Add(Item.Dimate, new FeedingResults(0, 1, -1, 27, -10, -16));
+      feedingResults.Add(Item.Trimate, new FeedingResults(2, 0, 5, 29, -7, -25));
+      feedingResults.Add(Item.Monofluid, new FeedingResults(-1, 0, -10, -5, -10, 21));
+      feedingResults.Add(Item.Difluid, new FeedingResults(0, 1, -5, -16, -5, 25));
+      feedingResults.Add(Item.Trifluid, new FeedingResults(2, 0, -7, -25, 6, 29));
+      feedingResults.Add(Item.Antidote, new FeedingResults(-1, 1, -10, -10, 28, -10));
+      feedingResults.Add(Item.Antiparalysis, new FeedingResults(2, -1, 9, -18, 24, -15));
+      feedingResults.Add(Item.SolAtomizer, new FeedingResults(2, 1, 19, 18, -15, -20));
+      feedingResults.Add(Item.MoonAtomizer, new FeedingResults(2, 1, -15, -20, 19, 18));
+      feedingResults.Add(Item.StarAtomizer, new FeedingResults(4, 2, 3, 7, 3, 3));
+      feedingTables.Add(feedingResults);
     }
   }
 }
