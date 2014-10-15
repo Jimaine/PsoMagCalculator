@@ -10,6 +10,11 @@ namespace PsoMagCalculator
 {
   class GenericCopy<T>
   {
+    /// <summary>
+    /// copy any class by value, if the class is defined as Serializable.
+    /// </summary>
+    /// <param name="m_other">The serializable class you want to copy.</param>
+    /// <returns></returns>
     public static T DeepCopy(T m_other)
     {
       using (MemoryStream ms = new MemoryStream())
