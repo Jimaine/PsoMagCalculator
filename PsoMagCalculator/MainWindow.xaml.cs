@@ -19,18 +19,18 @@ using System.Windows.Shapes;
 namespace PsoMagCalculator
 {
   /// <summary>
-  /// Interaction logic for MainWindow.xaml
+  /// Interaction logic for MainWindow.xaml.
   /// </summary>
   public partial class MainWindow : Window
   {
-    int m_ListCount = 0;
-    int m_HistoryBack = -1;
-    Mag m_MainMag = new Mag();
-    List<Mag> m_MagsInHistory = new List<Mag>();
-    Dictionary<Button, Item> m_Buttons = new Dictionary<Button, Item>();
+    private int m_ListCount = 0;
+    private int m_HistoryBack = -1;
+    private Mag m_MainMag = new Mag();
+    private List<Mag> m_MagsInHistory = new List<Mag>();
+    private Dictionary<Button, Item> m_Buttons = new Dictionary<Button, Item>();
 
     /// <summary>
-    /// Initialize the whole Grid
+    /// Initialize the whole Grid.
     /// </summary>
     public MainWindow()
     {
@@ -132,6 +132,7 @@ namespace PsoMagCalculator
 
     private void AddToListBox()
     {
+      // Start value for the list.
       ListBoxItem lbiEmpty = new ListBoxItem();
       lbiEmpty.Content = "Zyklus 1";
       m_MagsInHistory.Clear();
