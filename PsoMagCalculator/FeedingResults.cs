@@ -15,6 +15,15 @@ namespace PsoMagCalculator
     private int dex;
     private int mind;
 
+    /// <summary>
+    /// Basic constructor to set all feeding results.
+    /// </summary>
+    /// <param name="syncInc">increment for sync attribute.</param>
+    /// <param name="iqInc">increment for iq attribute.</param>
+    /// <param name="defInc">increment for def attribute.</param>
+    /// <param name="powInc">increment for pow attribute.</param>
+    /// <param name="dexInc">increment for dex attribute.</param>
+    /// <param name="mindInc">increment for mind attribute.</param>
     public FeedingResults(int syncInc, int iqInc, int defInc, int powInc, int dexInc, int mindInc)
     {
       sync = syncInc;
@@ -28,7 +37,7 @@ namespace PsoMagCalculator
     /// <summary>
     /// Adds corresponding values of FeedingResults to the Mag.
     /// </summary>
-    /// <param name="p_Mag">The Mag to Apply the Values</param>
+    /// <param name="p_Mag">The Mag to Apply the Values.</param>
     public void AddToMag(Mag p_Mag)
     {
       p_Mag.Sync += sync;
