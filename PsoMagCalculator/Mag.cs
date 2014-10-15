@@ -85,7 +85,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The def value of the bar
+    /// The def value of the bar.
     /// </summary>
     public int DefValue
     {
@@ -100,7 +100,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The pow value of the bar
+    /// The pow value of the bar.
     /// </summary>
     public int PowValue
     {
@@ -115,7 +115,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The dex value of the bar
+    /// The dex value of the bar.
     /// </summary>
     public int DexValue
     {
@@ -130,7 +130,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The mind value of the bar
+    /// The mind value of the bar.
     /// </summary>
     public int MindValue
     {
@@ -145,7 +145,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The whole def level
+    /// The whole def level.
     /// </summary>
     public int DefLevel
     {
@@ -160,7 +160,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The whole pow level
+    /// The whole pow level.
     /// </summary>
     public int PowLevel
     {
@@ -175,7 +175,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The whole dex level
+    /// The whole dex level.
     /// </summary>
     public int DexLevel
     {
@@ -190,7 +190,7 @@ namespace PsoMagCalculator
     }
 
     /// <summary>
-    /// The whole mind level
+    /// The whole mind level.
     /// </summary>
     public int MindLevel
     {
@@ -216,6 +216,9 @@ namespace PsoMagCalculator
       }
     }
 
+    /// <summary>
+    /// Basic Constructor set the Mag to start values.
+    /// </summary>
     public Mag()
     {
       this.name = MagName.Mag;
