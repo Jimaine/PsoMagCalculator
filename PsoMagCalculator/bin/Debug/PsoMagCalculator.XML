@@ -8,17 +8,17 @@
             <summary>
             Modifies the values of the Main Mag.
             </summary>
-            <param name="p_mag">The Mag to modify.</param>
-            <param name="p_item">The Item to feed the Mag.</param>
-            <param name="p_character">The character who feed the Mag.</param>
-            <param name="p_sectionId">The Id of the character who feed the Mag.</param>
+            <param name="mag">The Mag to modify.</param>
+            <param name="item">The Item to feed the Mag.</param>
+            <param name="character">The character who feed the Mag.</param>
+            <param name="sectionId">The Id of the character who feed the Mag.</param>
         </member>
         <member name="M:PsoMagCalculator.Calculations.GetTooltip(PsoMagCalculator.Item,PsoMagCalculator.MagName)">
             <summary>
             Return the Button's Tooltip as a string.
             </summary>
-            <param name="p_item">The Item which represents the button.</param>
-            <param name="p_magName">The Name of the Main Mag.</param>
+            <param name="item">The Item which represents the button.</param>
+            <param name="magName">The Name of the Main Mag.</param>
             <returns>string</returns>
         </member>
         <member name="M:PsoMagCalculator.FeedingResults.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
@@ -36,7 +36,7 @@
             <summary>
             Adds corresponding values of FeedingResults to the Mag.
             </summary>
-            <param name="p_Mag">The Mag to Apply the Values.</param>
+            <param name="mag">The Mag to Apply the Values.</param>
         </member>
         <member name="P:PsoMagCalculator.Mag.DefValue">
             <summary>
@@ -96,20 +96,7 @@
             Application Entry Point.
             </summary>
         </member>
-        <member name="P:PsoMagCalculator.MagFeedingTable.FeedingTables">
-            <summary>
-            Get the List of all eight FeedingTables.
-            </summary>
-        </member>
-        <member name="M:PsoMagCalculator.MagFeedingTable.#ctor">
-            <summary>
-            Basic Constructor to fill the List.
-            </summary>
-        </member>
         <member name="T:PsoMagCalculator.MainWindow">
-            <summary>
-            Interaction logic for MainWindow.xaml.
-            </summary>
             <summary>
             MainWindow
             </summary>

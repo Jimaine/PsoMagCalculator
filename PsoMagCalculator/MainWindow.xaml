@@ -18,57 +18,57 @@
     <Label x:Name="lblMagLevel" Content="Level: 0" HorizontalAlignment="Left" Margin="25,172,0,0" VerticalAlignment="Top" Foreground="#FF7578C1" Background="{x:Null}"/>
     <Label x:Name="lblCharacter" Content="Character:" HorizontalAlignment="Left" Margin="17,76,0,0" VerticalAlignment="Top" Foreground="#FF7578C1" Background="{x:Null}"/>
     <Label x:Name="lblSectionId" Content="Section Id:" HorizontalAlignment="Left" Margin="15,103,0,0" VerticalAlignment="Top" Foreground="#FF7578C1" Background="{x:Null}"/>
-    <Button x:Name="btnMonomate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,161,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" ToolTip="Monomate" Height="50" RenderTransformOrigin="0.5,0.5">
+    <Button x:Name="btnMonomate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,161,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" ToolTip="Monomate" Height="50" RenderTransformOrigin="0.5,0.5">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/monomate.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnDimate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,161,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Dimate">
+    <Button x:Name="btnDimate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,161,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Dimate">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/dimate.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnTrimate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,161,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Trimate">
+    <Button x:Name="btnTrimate" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,161,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Trimate">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/trimate.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnMonofluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,216,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Monofluid">
+    <Button x:Name="btnMonofluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,216,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Monofluid">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/monofluid.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnDifluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,216,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Difluid">
+    <Button x:Name="btnDifluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,216,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Difluid">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/difluid.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnTrifluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,216,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Trifluid">
+    <Button x:Name="btnTrifluid" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,216,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Trifluid">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/trifluid.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnAntidote" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,271,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Antidote">
+    <Button x:Name="btnAntidote" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,271,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Antidote">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/antidote.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnAntiparalysis" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,271,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Antiparalysis">
+    <Button x:Name="btnAntiparalysis" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,271,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Antiparalysis">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/antiparalysis.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnSolAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,326,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Sol Atomizer">
+    <Button x:Name="btnSolAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="177,326,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Sol Atomizer">
       <Button.Background>
         <ImageBrush Stretch="Uniform" ImageSource="Images/Items/solatomizer.gif"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnMoonAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,326,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Moon Atomizer">
+    <Button x:Name="btnMoonAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="242,326,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Moon Atomizer">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/moonatomizer.gif" Stretch="Uniform"/>
       </Button.Background>
     </Button>
-    <Button x:Name="btnStarAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,326,0,0" Click="btnMagFeed_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Star Atomizer">
+    <Button x:Name="btnStarAtomizer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="307,326,0,0" Click="MagFeedButton_Click" Foreground="#FF7578C1" BorderBrush="{x:Null}" Height="50" ToolTip="Star Atomizer">
       <Button.Background>
         <ImageBrush ImageSource="Images/Items/staratomizer.gif" Stretch="Uniform"/>
       </Button.Background>
@@ -76,7 +76,7 @@
     <Label x:Name="lblMagName" Content="Mag" HorizontalAlignment="Left" Margin="25,153,0,0" VerticalAlignment="Top" Foreground="#FF7578C1" Background="{x:Null}"/>
     <ComboBox x:Name="cmbCharakter" HorizontalAlignment="Left" Margin="85,80,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Background="#FF7578C1" BorderBrush="#FF7578C1" Foreground="#FF151530"/>
     <Image x:Name="imgMag" HorizontalAlignment="Left" Height="100" Margin="48,286,0,0" VerticalAlignment="Top" Width="100" Source="Images/Mags/mag.gif"/>
-    <ComboBox x:Name="cmbSectionId" HorizontalAlignment="Left" Margin="85,107,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Background="#FF7578C1" BorderBrush="#FF7578C1" Foreground="#FF151530" SelectionChanged="cmbSectionId_SelectionChanged"/>
+    <ComboBox x:Name="cmbSectionId" HorizontalAlignment="Left" Margin="85,107,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Background="#FF7578C1" BorderBrush="#FF7578C1" Foreground="#FF151530" SelectionChanged="SectionIdComboBox_SelectionChanged"/>
     <Image x:Name="imgSectionId" HorizontalAlignment="Left" Height="50" Margin="226,80,0,0" VerticalAlignment="Top" Width="50" Source="Images/SectionIds/Viridia.png"/>
     <ListBox x:Name="ListHistory" HorizontalAlignment="Left" Height="462" Margin="799,0,0,0" VerticalAlignment="Top" Width="187" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" MouseUp="ListHistory_MouseUp"/>
     <Label x:Name="lblIq" Content="IQ: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF7578C1" Margin="113,153,0,0"/>
@@ -95,6 +95,6 @@
     <Image x:Name="imgPhotonTwo" HorizontalAlignment="Left" Height="69" Margin="703,76,0,0" VerticalAlignment="Top" Width="69" Source="Images/PhotonBlasts/Farlla.png"/>
     <Image x:Name="imgPhotonThree" HorizontalAlignment="Left" Height="69" Margin="549,341,0,0" VerticalAlignment="Top" Width="69" Source="Images/PhotonBlasts/Farlla.png"/>
     <Label x:Name="lblMeseta" Content="0 Meseta" HorizontalAlignment="Left" Margin="309,405,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Foreground="#FF7578C1"/>
-    <Button x:Name="btnSave" Content="Get History" HorizontalAlignment="Left" Margin="60,410,0,0" VerticalAlignment="Top" Width="75" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" Click="btnSave_Click"/>
+    <Button x:Name="btnSave" Content="Get History" HorizontalAlignment="Left" Margin="60,410,0,0" VerticalAlignment="Top" Width="75" Background="#FF151530" BorderBrush="#FF7578C1" Foreground="#FF7578C1" Click="SaveButton_Click"/>
   </Grid>
 </Window>

@@ -4,7 +4,7 @@ namespace PsoMagCalculator
 {
     static class Calculations
     {
-        private static MagFeedingTable magFeedingTable = new MagFeedingTable();
+        private static readonly MagFeedingTable magFeedingTable = new MagFeedingTable();
 
         /// <summary>
         /// Modifies the values of the Main Mag.
@@ -30,17 +30,15 @@ namespace PsoMagCalculator
         /// <returns>string</returns>
         public static string GetTooltip(Item item, MagName magName)
         {
-            Mag tmpMag = new Mag();
+            var mag = new Mag { Name = magName };
+            SetMag(mag, item);
 
-            tmpMag.Name = magName;
-            SetMag(tmpMag, item);
-
-            return item.ToString() + "\n\n" + GetHoverText(tmpMag);
+            return $"{item}\n\n{GetHoverText(mag)}";
         }
 
         private static string GetHoverText(Mag mag)
         {
-            return String.Format("IQ: {0}\nSync: {1}\nDef: {2}\nPow: {3}\nDex: {4}\nMind: {5}", mag.IQ, mag.Sync, mag.DefValue, mag.PowValue, mag.DexValue, mag.MindValue);
+            return $"IQ: {mag.IQ}\nSync: {mag.Sync}\nDef: {mag.DefValue}\nPow: {mag.PowValue}\nDex: {mag.DexValue}\nMind: {mag.MindValue}";
         }
 
         private static void SetMag(Mag mag, Item item)
