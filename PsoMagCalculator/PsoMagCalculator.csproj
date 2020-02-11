@@ -57,11 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalculationEnums.cs" />
     <Compile Include="Calculations.cs" />
+    <Compile Include="Enum\Character.cs" />
+    <Compile Include="Enum\Item.cs" />
+    <Compile Include="Enum\MagName.cs" />
+    <Compile Include="Enum\PhotonBlast.cs" />
+    <Compile Include="Enum\SectionId.cs" />
     <Compile Include="FeedingResults.cs" />
-    <Compile Include="GenericCopy.cs" />
-    <Compile Include="Mag.cs" />
+    <Compile Include="Helper\GenericCopy.cs" />
+    <Compile Include="Model\Mag.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -189,6 +193,7 @@
     <Resource Include="Images\PhotonBlasts\MyllaAndYoulla.png" />
     <Resource Include="Images\PhotonBlasts\PIlla.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

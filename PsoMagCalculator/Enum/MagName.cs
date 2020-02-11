@@ -1,0 +1,53 @@
+﻿using System;
+
+namespace PsoMagCalculator
+{
+    enum MagName
+    {
+        Mag,
+        Varuna,
+        Vritra,
+        Kalki,
+        Ashvinau,
+        Sumba,
+        Namuci,
+        Marutah,
+        Rudra,
+        Surya,
+        Tapas,
+        Mitra,
+        Asperus,
+        Vayu,
+        Varaha,
+        Ushasu,
+        Kama,
+        Kaitabha,
+        Kumara,
+        Bhirava,
+        Ila,
+        Garuda,
+        Sita,
+        Soma,
+        Durga,
+        Nandin,
+        Yaksa,
+        Ribhava,
+        Andhaka,
+        Kabanda,
+        Naga,
+        Naraka,
+        Bana,
+        Marica,
+        Madhu,
+        Ravana,
+        Deva,
+        Rati,
+        Savitri,
+        Rukmin,
+        Pushan,
+        Diwari,
+        Nidra,
+        Sato,
+        Bhima
+    }
+}

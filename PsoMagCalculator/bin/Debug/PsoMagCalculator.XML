@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PsoMagCalculator</name>
+    </assembly>
+    <members>
+        <member name="M:PsoMagCalculator.Calculations.Recalculate(PsoMagCalculator.Mag,PsoMagCalculator.Item,PsoMagCalculator.Character,PsoMagCalculator.SectionId)">
+            <summary>
+            Modifies the values of the Main Mag.
+            </summary>
+            <param name="p_mag">The Mag to modify.</param>
+            <param name="p_item">The Item to feed the Mag.</param>
+            <param name="p_character">The character who feed the Mag.</param>
+            <param name="p_sectionId">The Id of the character who feed the Mag.</param>
+        </member>
+        <member name="M:PsoMagCalculator.Calculations.GetTooltip(PsoMagCalculator.Item,PsoMagCalculator.MagName)">
+            <summary>
+            Return the Button's Tooltip as a string.
+            </summary>
+            <param name="p_item">The Item which represents the button.</param>
+            <param name="p_magName">The Name of the Main Mag.</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:PsoMagCalculator.FeedingResults.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Basic constructor to set all feeding results.
+            </summary>
+            <param name="syncInc">increment for sync attribute.</param>
+            <param name="iqInc">increment for iq attribute.</param>
+            <param name="defInc">increment for def attribute.</param>
+            <param name="powInc">increment for pow attribute.</param>
+            <param name="dexInc">increment for dex attribute.</param>
+            <param name="mindInc">increment for mind attribute.</param>
+        </member>
+        <member name="M:PsoMagCalculator.FeedingResults.AddToMag(PsoMagCalculator.Mag)">
+            <summary>
+            Adds corresponding values of FeedingResults to the Mag.
+            </summary>
+            <param name="p_Mag">The Mag to Apply the Values.</param>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.DefValue">
+            <summary>
+            The def value of the bar.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.PowValue">
+            <summary>
+            The pow value of the bar.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.DexValue">
+            <summary>
+            The dex value of the bar.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.MindValue">
+            <summary>
+            The mind value of the bar.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.DefLevel">
+            <summary>
+            The whole def level.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.PowLevel">
+            <summary>
+            The whole pow level.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.DexLevel">
+            <summary>
+            The whole dex level.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Mag.MindLevel">
+            <summary>
+            The whole mind level.
+            </summary>
+        </member>
+        <member name="T:PsoMagCalculator.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:PsoMagCalculator.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:PsoMagCalculator.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.MagFeedingTable.FeedingTables">
+            <summary>
+            Get the List of all eight FeedingTables.
+            </summary>
+        </member>
+        <member name="M:PsoMagCalculator.MagFeedingTable.#ctor">
+            <summary>
+            Basic Constructor to fill the List.
+            </summary>
+        </member>
+        <member name="T:PsoMagCalculator.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:PsoMagCalculator.MainWindow.#ctor">
+            <summary>
+            Initialize the whole Grid.
+            </summary>
+        </member>
+        <member name="M:PsoMagCalculator.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:PsoMagCalculator.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PsoMagCalculator.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
