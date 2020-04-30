@@ -40,7 +40,7 @@ namespace PsoMagCalculator
         {
             return $"IQ: {mag.IQ}\nSync: {mag.Sync}\nDef: {mag.DefValue}\nPow: {mag.PowValue}\nDex: {mag.DexValue}\nMind: {mag.MindValue}";
         }
-
+         
         private static void SetMag(Mag mag, Item item)
         {
             switch (mag.Name)
